@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ClinicPac.LoginPage">
+   <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <StackLayout>
+                <Label Text="ClinicPac 2.0" FontSize="20" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <Entry x:Name="Email"  Placeholder="Email" Keyboard="Email" />
+                <Entry x:Name="Password"  Placeholder="Contraseña"      IsPassword="True"  />
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Login" 
+                    BackgroundColor="#19bfbf"
+                    TextColor="White" 
+                    Clicked="LoginClicked"/>
+                <Label Text="" x:Name="LblResult" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <ActivityIndicator IsRunning="False" x:Name="loading" Color="BlueViolet"></ActivityIndicator>
+            <Label Text="" x:Name="LoginResult" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ClinicPac.ConsultationPage">
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="Borrar" Clicked="DeleteConsultationClicked" />
+
+    </ContentPage.ToolbarItems>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*" />
+            <RowDefinition Height="10*" />
+            
+        </Grid.RowDefinitions>
+        <StackLayout  Grid.Row="0" Margin="10" >
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="60*"/>
+                </Grid.ColumnDefinitions>
+                
+                <StackLayout  Grid.Row="0" Grid.Column="0">
+                    <Label Text="Documento: "  Font="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.Column="0">
+                    <Label Text="Cirugía: "  Font="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Grid.Column="0" >
+                    <Label Text="Prevision: "  Font="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Row="0" Grid.Column="1" >
+                    <Label Text="{Binding Document}"   />
+                </StackLayout>
+                <StackLayout  Grid.Row="1" Grid.Column="1">
+                    <Label Text="{Binding Surgery}"   />
+                </StackLayout>
+                <StackLayout Grid.Row="2" Grid.Column="1" >
+                    <Label Text="{Binding Prevision}"   />
+                </StackLayout>
+                
+            </Grid>
+
+           
+         
+
+
+            <StackLayout Margin="10" x:Name="NoTicketDateDetails">
+                <Label  Text="Fecha creada" TextColor="#4169e1"   FontSize="18"/>
+                <Label  Text="{Binding TicketDate, StringFormat='\{0:d}'}" FontSize="18"></Label>
+            </StackLayout>
+
+            <StackLayout Margin="10" x:Name="TicketDateDetails">
+
+                <Label  Text="Fecha de la boleta" TextColor="#4169e1" FontSize="18" />
+                <Label  Text="{Binding TicketDate, StringFormat='\{0:d}'}" FontSize="18"></Label>
+            </StackLayout>
+
+            <StackLayout Margin="10" x:Name="PaidDateDetails">
+
+                <Label  Text="Fecha pagada" TextColor="#4169e1"   FontSize="18"/>
+                <Label Text="{Binding PaidDate, StringFormat='\{0:d}'}" FontSize="18"></Label>
+            </StackLayout>
+
+            <Picker x:Name="StatePicker"
+                    Title="Cambiar estado" 
+                    FontSize="18"
+                    TitleColor="Black">
+
+                <Picker.ItemsSource>
+
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Sin boleta</x:String>
+                        <x:String>Con boleta</x:String>
+                        <x:String>Pagada</x:String>
+                    </x:Array>
+
+                </Picker.ItemsSource>
+            </Picker>
+
+            <StackLayout>
+                <Button Text="Guardar" 
+                         x:Name="SaveButton" 
+                    BackgroundColor="#19bfbf"
+                    TextColor="White" 
+                    Clicked="SaveClicked"/>
+                <Label x:Name="ResultText" HorizontalTextAlignment="Center"></Label>
+                <ActivityIndicator IsRunning="False" x:Name="loading" Color="BlueViolet"></ActivityIndicator>
+
+            </StackLayout>
+
+        </StackLayout>
+
+    
+
+
+    </Grid>
+
+
+
+
+
+
+
+
+
+
+    <!--<ContentPage.Content>
+        <StackLayout Margin="20">
+
+            <StackLayout Margin="{StaticResource MarginBot10}">
+
+                <Label FontSize="18">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span  Text="Documento: " TextColor="#4169e1" Font="Bold,18"/>
+                            <Span  Text="{Binding Document}"  FontSize="18" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout >
+
+            <StackLayout Margin="{StaticResource MarginBot10}">
+
+                <Label FontSize="18">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span  Text="Cirugía: " TextColor="#4169e1" Font="Bold,18"/>
+                            <Span  Text="{Binding Surgery}"    FontSize="18" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Margin="{StaticResource MarginBot10}">
+
+                <Label FontSize="18">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span  Text="Prevision: " TextColor="#4169e1" Font="Bold,18"/>
+                            <Span Text="{Binding Prevision}" FontSize="18" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+         
+            <StackLayout Margin="10" x:Name="NoTicketDateDetails">
+                <Label  Text="Fecha creada" TextColor="#4169e1"   FontSize="18"/>
+                <Label  Text="{Binding TicketDate, StringFormat='\{0:d}'}" FontSize="18"></Label>
+            </StackLayout>
+
+            <StackLayout Margin="10" x:Name="TicketDateDetails">
+
+                <Label  Text="Fecha de la boleta" TextColor="#4169e1" FontSize="18" />
+                <Label  Text="{Binding TicketDate, StringFormat='\{0:d}'}" FontSize="18"></Label>
+            </StackLayout>
+
+            <StackLayout Margin="10" x:Name="PaidDateDetails">
+
+                <Label  Text="Fecha pagada" TextColor="#4169e1"   FontSize="18"/>
+                <Label Text="{Binding PaidDate, StringFormat='\{0:d}'}" FontSize="18"></Label>
+            </StackLayout>
+
+            <Picker x:Name="StatePicker"
+                    Title="Cambiar estado" 
+                    FontSize="18"
+                    TitleColor="Black">
+            
+                <Picker.ItemsSource>
+
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Sin boleta</x:String>
+                        <x:String>Con boleta</x:String>
+                        <x:String>Pagada</x:String>
+                    </x:Array>
+
+                </Picker.ItemsSource>
+            </Picker>
+
+            
+
+            <StackLayout>
+                <Button Text="Guardar" 
+                         x:Name="SaveButton" 
+                    BackgroundColor="#19bfbf"
+                    TextColor="White" 
+                    Clicked="SaveClicked"/>
+            </StackLayout>
+
+            <StackLayout>
+                <Button Text="Eliminar" 
+                        
+                    BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                    TextColor="#ffcc00" 
+                        Font="Bold"
+                    Clicked="DeleteConsultationClicked"/>
+            </StackLayout>
+            
+        
+            <Label x:Name="ResultText" HorizontalTextAlignment="Center"></Label>
+        </StackLayout>
+    </ContentPage.Content>-->
+</ContentPage>

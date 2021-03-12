@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ClinicPac"
+             mc:Ignorable="d"
+             x:Class="ClinicPac.Master"
+             Padding="0"
+             Title="Master">
+
+ 
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*" />
+                <RowDefinition Height="15*" />
+            </Grid.RowDefinitions>
+            <StackLayout  Grid.Row="0"  >
+
+
+                <Grid HorizontalOptions="FillAndExpand" HeightRequest="170" >
+
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+                    <Image Aspect="AspectFill"
+Source="bg.png" HeightRequest="170"
+Grid.ColumnSpan="5"
+Grid.RowSpan="4" />
+
+                    <Image Source="doctor.png" HeightRequest="60" WidthRequest="60" 
+Grid.Column="1" 
+Grid.Row="1"
+HorizontalOptions="Start"
+VerticalOptions="End"/>
+
+                    <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1" Margin="10,0,0,0"
+Grid.Column="2" Grid.ColumnSpan="3" Orientation="Vertical">
+                        <Label
+HorizontalTextAlignment="Start"
+VerticalTextAlignment="Center"
+TextColor="White"
+                    x:Name="UserAlias"
+Text=""/>
+
+                        <Label 
+HorizontalTextAlignment="Start"
+VerticalTextAlignment="Center"
+TextColor="White"  x:Name="Email" Text=""/>
+                    </StackLayout>
+                </Grid>
+
+
+
+
+
+
+                <Button Text="Consultas" TextColor="#2196f3"  HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" Clicked="ConsultationsClicked"/>
+                <Button Text="Nueva consulta" TextColor="#2196f3"  HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" Clicked="NewConsultationClicked"/>
+
+                <Button Text="Mi cuenta" TextColor="#2196f3" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" Clicked="AccountClicked"/>
+
+            </StackLayout>
+
+
+            <Button Text="Cerrar sesion" Grid.Row="1"  TextColor="#878787"  HorizontalOptions="Center" VerticalOptions="End"  BackgroundColor="Transparent" Clicked="LogOutClicked"/>
+
+
+        </Grid>
+
+  
+   
+
+</ContentPage>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ClinicPac.AccountPage">
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <Editor Text="{Binding Alias} "/>
+            <Editor Text="{Binding Name}"/>
+            <Editor Text="{Binding Email}" x:Name="Email"/>
+
+            <Editor x:Name="Pass" Placeholder="Cambiar contraseña"/>
+            <StackLayout Margin="0,30">
+
+
+
+                <Entry x:Name="PasswordConfirm"  Placeholder="Contraseña actual" IsPassword="True"  />
+                <Button Text="GUARDAR" 
+                    BackgroundColor="#19bfbf"
+                    TextColor="White" 
+                    Clicked="SaveUserChangesClicked"/>
+                <Label Text="" x:Name="LblResult" HorizontalTextAlignment="Center"/>
+                <ActivityIndicator IsRunning="False" x:Name="loading" Color="BlueViolet"></ActivityIndicator>
+
+
+
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

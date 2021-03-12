@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Registrar consulta"
+             x:Class="ClinicPac.NewConsultationPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+
+            <Entry Placeholder="Nombre"  Text="{Binding Name}" Margin="{StaticResource MarginBot10}"/>
+
+            <Entry Placeholder="Documento" Text="{Binding Document}"  Margin="{StaticResource MarginBot10}" />
+
+            <Entry Placeholder="Cirugía" Text="{Binding Surgery}"  Margin="{StaticResource MarginBot10}"/>
+
+            <DatePicker x:Name="NoTicketDatePicker" Margin="{StaticResource MarginBot10}"/>
+            
+         
+            <Picker x:Name="PrevisionPicker"
+                    SelectedIndexChanged="PrevisionFilterChanged"
+                    Title="PREVISION"
+                  
+                    TitleColor="Black">
+                
+                <Picker.ItemsSource>
+                    
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>OTRO</x:String>
+                        <x:String>FONASA</x:String>
+                        <x:String>PAD</x:String>
+                        <x:String>CONSALUD</x:String>
+                        <x:String>BANMÉDICA</x:String>
+                        <x:String>COLMENA</x:String>
+                        <x:String>VIDA TRES</x:String>
+                        <x:String>CRUZ BLANCA</x:String>
+                        <x:String>MAS VIDA</x:String>
+                        <x:String>DIPRECA</x:String>
+                        <x:String>PRIVADO</x:String>
+                    </x:Array>
+                    
+                </Picker.ItemsSource>
+                
+                
+               
+            </Picker>
+            <StackLayout>
+                 <Button Text="GUARDAR" 
+                    BackgroundColor="#19bfbf"
+                    TextColor="White" 
+                    Clicked="NewConsultationClicked"/>
+                <Label Text="" x:Name="LblResult" HorizontalTextAlignment="Center"/>
+                <ActivityIndicator IsRunning="False" x:Name="loading" Color="BlueViolet"></ActivityIndicator>
+
+            </StackLayout>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
